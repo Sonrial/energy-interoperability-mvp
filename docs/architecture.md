@@ -233,3 +233,13 @@ Incluidos en la raíz del repositorio como archivos ejecutables iniciales.
 | Errores de zona horaria | doble conteo o desfase | UTC obligatorio, tests DST, intervalos `[start,end)` |
 | Calidad SCADA deficiente | falsos hallazgos | flags, quarantine, thresholds por sensor |
 | Volumen subhorario | lentitud | Polars/Parquet particionado/ClickHouse fase escala |
+
+## Ejecución de ejemplo versionada
+
+Para facilitar la revisión del MVP sin depender de paquetes externos, se incluye una ejecución de punta a punta basada solo en la librería estándar:
+
+```bash
+python examples/run_sample_without_dependencies.py
+```
+
+La entrada está en `examples/sample_data/sam_weather_sample.csv`. Las salidas versionadas quedan en `examples/sample_output/canonical_measurements.csv` y `examples/sample_output/kpi_summary.json`. Esta demo no reemplaza el pipeline productivo con pandas/Pandera/Parquet, pero permite inspeccionar la semántica esperada: hora local de Colombia, UTC, GHI, potencia real, potencia esperada simple, residual, energía neta y flags de calidad.
