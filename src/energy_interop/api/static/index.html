@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Energy Interoperability MVP</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">MVP Colombia · Interoperabilidad energética</p>
+          <h1>Consola de datos canónicos para activos renovables</h1>
+          <p class="hero-copy">
+            Explora la ejecución de ejemplo SAM CSV, valida la normalización UTC/local y revisa KPIs
+            operativos sin abrir hojas de cálculo.
+          </p>
+        </div>
+        <div class="hero-card" aria-label="Resumen KPI principal">
+          <span class="label">Energía neta</span>
+          <strong id="energy-net">—</strong>
+          <small id="period-range">Cargando periodo…</small>
+        </div>
+      </section>
+
+      <section class="grid cards" aria-label="Indicadores operativos">
+        <article class="metric-card">
+          <span class="label">Energía esperada</span>
+          <strong id="energy-expected">—</strong>
+        </article>
+        <article class="metric-card">
+          <span class="label">Residual medio</span>
+          <strong id="mean-residual">—</strong>
+        </article>
+        <article class="metric-card">
+          <span class="label">Registros</span>
+          <strong id="record-count">—</strong>
+        </article>
+        <article class="metric-card">
+          <span class="label">Calidad</span>
+          <strong id="quality-count">—</strong>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Serie canónica</p>
+            <h2>GHI, potencia real y potencia esperada</h2>
+          </div>
+          <button id="refresh-button" type="button">Actualizar datos</button>
+        </div>
+        <div class="chart" id="chart" role="img" aria-label="Gráfico de barras de potencia e irradiancia"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Detalle auditable</p>
+            <h2>Mediciones normalizadas</h2>
+          </div>
+          <span class="status" id="load-status">Cargando…</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Hora local</th>
+                <th>UTC</th>
+                <th>GHI</th>
+                <th>Pot. real</th>
+                <th>Pot. esperada</th>
+                <th>Residual</th>
+                <th>Flag</th>
+              </tr>
+            </thead>
+            <tbody id="measurements-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>

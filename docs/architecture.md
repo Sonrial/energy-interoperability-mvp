@@ -243,3 +243,17 @@ python examples/run_sample_without_dependencies.py
 ```
 
 La entrada está en `examples/sample_data/sam_weather_sample.csv`. Las salidas versionadas quedan en `examples/sample_output/canonical_measurements.csv` y `examples/sample_output/kpi_summary.json`. Esta demo no reemplaza el pipeline productivo con pandas/Pandera/Parquet, pero permite inspeccionar la semántica esperada: hora local de Colombia, UTC, GHI, potencia real, potencia esperada simple, residual, energía neta y flags de calidad.
+
+## Frontend del MVP
+
+El frontend inicial es una SPA estática servida por FastAPI desde `/`. Consume endpoints internos bajo `/api/sample/*` para mostrar KPIs, serie canónica, gráfico comparativo de GHI/potencia real/potencia esperada y tabla auditable. La decisión de usar HTML/CSS/JavaScript sin build step reduce fricción en el MVP; si el producto requiere estado complejo, autenticación avanzada o componentes reutilizables, puede migrarse a React/Vite manteniendo los mismos contratos REST.
+
+Endpoints utilizados por la interfaz:
+
+| Endpoint | Propósito |
+|---|---|
+| `GET /` | Sirve `index.html` |
+| `GET /static/app.js` | Lógica de carga y renderizado |
+| `GET /static/styles.css` | Estilos de dashboard |
+| `GET /api/sample/kpis` | Resumen KPI de la ejecución de ejemplo |
+| `GET /api/sample/measurements` | Mediciones canónicas paginables |

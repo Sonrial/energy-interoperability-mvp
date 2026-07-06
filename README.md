@@ -21,6 +21,17 @@ Salidas generadas y versionadas para revisión:
 
 La salida canónica muestra timestamps locales `America/Bogota`, timestamps UTC, GHI, potencia real, potencia esperada, residual, energía neta y flags de calidad. El resumen KPI agrega energía neta, energía esperada, residual medio y conteo de flags.
 
+
+## Frontend local
+
+La interfaz web está servida por FastAPI y consume los endpoints de ejemplo incluidos en el repositorio:
+
+```bash
+uvicorn energy_interop.api.main:app --reload
+```
+
+Luego abre `http://127.0.0.1:8000/`. La pantalla permite revisar KPIs, gráfico de GHI/potencia y tabla canónica a partir de `examples/sample_output/`.
+
 ## Inicio rápido con stack completo
 
 ```bash
