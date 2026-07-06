@@ -1,0 +1,12 @@
+{
+  "asset_id": "pv_demo_colombia",
+  "period_start_utc": "2026-01-01T11:00:00Z",
+  "period_end_utc": "2026-01-01T22:00:00Z",
+  "records": 12,
+  "energy_kwh_net": 5075.0,
+  "expected_energy_kwh": 5860.0,
+  "mean_residual_kw": -65.417,
+  "quality_flag_counts": {
+    "ok": 12
+  }
+}
